@@ -1,13 +1,13 @@
-<% director = Director.find_by(id: params["id"]) %>
+<% discussion = Discussion.find_by(id: params["id"]) %>
 
-<h1><%= director.name %></h1>
+<h1><%= discussion.title %></h1>
 
-<p>Movies by this director:</p>
+<p>Comments by this discussion:</p>
 
 <div class="row">
-  <% director.movies.each do |movie| %>
+  <% discussion.comments.each do |comment| %>
     <div class="col-sm-3">
-      <%= link_to image_tag(movie.poster_url, class: 'img-fluid'), "/movies/#{movie.id}" %>
+      <%= link_to "Related Comments", "/comments/#{comment.id}" %>
     </div>
   <% end %>
 </div>

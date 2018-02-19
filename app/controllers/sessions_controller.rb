@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:user_id)
-    redirect_to "/movies"
+    redirect_to "/discussions"
   end
 
   def create
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user != nil
       if user.password == params["password"]
         session[:user_id] = user.id
-        redirect_to "/movies"
+        redirect_to "/discussions"
 
       else
         redirect_to "/sessions/new"

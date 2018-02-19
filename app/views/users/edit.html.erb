@@ -7,7 +7,7 @@
 
     <%= form_tag "/users/#{user.id}", method: "patch" do %>
 
-      <p>Email: <input value="<%= user.email %>" name="email" type="text" autofocus class="form-control"></p>
+      <p>Nickname: <input value="<%= user.nickname %>" name="nickname" type="text" autofocus class="form-control"></p>
       <p>Password: <input value="<%= user.password %>" name="password" type="text" autofocus class="form-control"></p>
 
       <button class="btn btn-primary">Update User</button>

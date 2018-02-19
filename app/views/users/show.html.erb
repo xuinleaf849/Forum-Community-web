@@ -3,5 +3,6 @@
 
 <% user = User.find_by(id: params["id"]) %>
 
+<p>Nickname: <%= user.nickname %></p>
 <p>Email: <%= user.email %></p>
-<p>Password: <%= user.email %></p>
+<p>Password: <%= user.password %></p>

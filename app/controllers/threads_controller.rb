@@ -5,19 +5,15 @@ class ThreadsController < ApplicationController
 
   def update
     thread = Thread.find_by(id: params["id"])
-    thread.name = params["name"]
+    thread.comment_count = # Comment.count(where(thread_id: #thread))
     thread.save
     redirect_to "/threads"
   end
 
-  def destroy
-    thread = Thread.find_by(id: params["id"])
-    thread.delete
-    redirect_to "/threads"
-  end
+# how to update the comment_count every time comment changes??
 
   def create
-    Thread.create :name => params["name"]
+    Thread.create :comment_count => 0
     redirect_to "/threads"
   end
 

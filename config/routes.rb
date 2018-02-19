@@ -1,24 +1,25 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    root 'threads#index'
+    root 'discussions#index'
 
     get "/users" => "users#index"
     get "/users/new" => 'users#new'
     post "/users" => 'users#create'
     get "/users/:id" => 'users#show'
     delete "/users/:id" => 'users#destroy'
-    # get "/users/:id/edit" => 'users#edit'
-    # patch "/users/:id" => 'users#update'
+    get "/users/:id/edit" => 'users#edit'
+    patch "/users/:id" => 'users#update'
 
-    get "/threads" => "threads#index"
-    get "/threads/new" => 'threads#new'
-    post "/threads" => 'threads#create'
-    get "/threads/:id" => 'threads#show'
-    delete "/threads/:id" => 'threads#destroy'
-    get "/threads/:id/edit" => 'threads#edit'
-    patch "/threads/:id" => 'threads#update'
+    # ?? not sure for the threads route (should be automatically created and deleted with /discussions)
+    # get "/threads" => "threads#index"
+    # get "/threads/new" => 'discussions#new'
+    # post "/threads" => 'threads#create'
+    # get "/threads/:id" => 'threads#show'
+    # get "/threads/:id/edit" => 'threads#edit'
+    # patch "/threads/:id" => 'threads#update'
+    # delete "/threads/:id" => 'discussions#destroy'
 
-    # get "/discussions" => "discussions#index"
+    get "/discussions" => "discussions#index"
     get "/discussions/new" => 'discussions#new'
     post "/discussions" => 'discussions#create'
     get "/discussions/:id" => 'discussions#show'

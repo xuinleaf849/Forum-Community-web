@@ -1,15 +1,26 @@
-<% director = Director.find_by(id: params["id"]) %>
+<% discussion = Discussion.find_by(id: params["id"]) %>
 
-<h1>Editing <%= director.name %></h1>
+<h1>Editing <%= discussion.title %></h1>
 
 <div class="row">
   <div class="col-sm-4">
 
-    <%= form_tag "/directors/#{director.id}", method: "patch" do %>
+    <%= form_tag "/discussions/#{discussion.id}", method: "patch" do %>
 
-      <p>Name: <input value="<%= director.name %>" name="name" type="text" autofocus class="form-control"></p>
+      <p>Title: <input value="<%= discussion.title %>" name="title" type="text" autofocus class="form-control"></p>
+      <p>Content: <input value="<%= discussion.content %>"  name="year" type="text" class="form-control"></p>
 
-      <button class="btn btn-primary">Update Director</button>
+      <p>User:
+          <select name="user_id" class="form-control">
+            <% User.order('name').each do |user| %>
+              <option value="<%= user.id %>" <%= 'selected' if discussion.user_id == user.id %> >
+                <%= user.nickname %>
+              </option>
+            <% end %>
+          </select>
+      </p>
+
+      <button class="btn btn-primary">Update Discussion</button>
 
     <% end %>
 

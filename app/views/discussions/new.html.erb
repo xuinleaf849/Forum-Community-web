@@ -1,12 +1,15 @@
-<h1>Add a Director</h1>
+<h1>Add a Discussion</h1>
 
 <div class="row">
   <div class="col-sm-4">
 
-    <%= form_tag "/directors" do %>
+    <%= form_tag "/discussions" do %>
 
-      <p>Name: <input name="name" type="text" autofocus class="form-control"></p>
-      <button class="btn btn-primary">Add New Director</button>
+      <p>Title: <input name="title" type="text" autofocus class="form-control"></p>
+      <p>Content: <input name="content" type="text" autofocus class="form-control"></p>
+
+
+      <button class="btn btn-primary">Add New Discussion</button>
 
     <% end %>
 
