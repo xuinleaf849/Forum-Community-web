@@ -1,6 +1,6 @@
 # README
 
-Community for MPCS student@UChicago
+Building a Community for MPCS student@UChicago
 =============
 
 Models:
