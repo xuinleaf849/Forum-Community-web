@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.text "message"
     t.datetime "time"
     t.integer "user_id"
-    t.integer "thread_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["thread_id"], name: "index_comments_on_thread_id"
+    t.integer "discussion_id"
+    t.index ["discussion_id"], name: "index_comments_on_discussion_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -28,26 +28,16 @@ ActiveRecord::Schema.define(version: 0) do
     t.text "content"
     t.datetime "updated_at"
     t.integer "user_id"
-    t.integer "thread_id"
     t.datetime "created_at"
-    t.index ["thread_id"], name: "index_discussions_on_thread_id"
     t.index ["user_id"], name: "index_discussions_on_user_id"
-  end
-
-  create_table "threads", force: :cascade do |t|
-    t.integer "comment_count"
-    t.integer "discussion_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["discussion_id"], name: "index_threads_on_discussion_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "nickname"
-    t.text "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text "password_digest"
   end
 
 end

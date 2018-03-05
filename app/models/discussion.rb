@@ -1,5 +1,5 @@
 class Discussion < ApplicationRecord
 
-  belongs_to :thread
+  has_many :comments
 
 end

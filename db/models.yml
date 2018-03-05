@@ -7,7 +7,7 @@
 User
   email: string
   nickname: string
-  password: text
+  password_digest: text
 
 Discussion
   title: text

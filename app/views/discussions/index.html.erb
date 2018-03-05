@@ -15,7 +15,7 @@
     <tbody>
       <% Discussion.all.order('title').each do |discussion| %>
         <tr>
-          <td><%= link_to discussion.name, "/discussions/#{discussion.id}" %></td>
+          <td><%= link_to discussion.title, "/discussions/#{discussion.id}" %></td>
           <td><%= link_to "[Edit]", "/discussions/#{discussion.id}/edit" %></td>
           <td><%= link_to "[Delete]", "/discussions/#{discussion.id}", method: 'delete' %></td>
         </tr>

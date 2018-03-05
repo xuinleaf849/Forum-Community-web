@@ -18,8 +18,8 @@ class DiscussionsController < ApplicationController
   def create
     Discussion.create :title => params["title"]
                       :content => params["content"]
-                      :user_id => #whoever login
-                      thread_id: => #new
+                      # :user_id => #whoever login
+                      # thread_id: => #new
     # create thread
     redirect_to "/discussions"
   end

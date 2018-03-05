@@ -1,6 +1,6 @@
-class Thread < ApplicationRecord
-
-  has_many :discussions
-  has_many :comments
-
-end
+# class Thread < ApplicationRecord
+#
+#   has_many :discussions
+#   has_many :comments
+#
+# end
