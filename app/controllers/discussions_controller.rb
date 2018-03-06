@@ -11,7 +11,6 @@ class DiscussionsController < ApplicationController
   def destroy
     discussion = Discussion.find_by(id: params["id"])
     discussion.delete
-    # I need to thread.delete here, how to call object from other class?
     redirect_to "/discussions"
   end
 
@@ -19,9 +18,9 @@ class DiscussionsController < ApplicationController
     Discussion.create :title => params["title"]
                       :content => params["content"]
                       # :user_id => #whoever login
-                      # thread_id: => #new
-    # create thread
-    redirect_to "/discussions"
+                      # topic_id: => #new
+    # create topic
+    redirect_to "/discussions", notice: "Yay! Topic added!"
   end
 
 end

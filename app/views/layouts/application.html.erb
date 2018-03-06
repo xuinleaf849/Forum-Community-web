@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Discussions</title>
+    <title>Welcome to MPCS Forum!</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,21 +36,23 @@
         </form>
         <ul class="navbar-nav ml-auto">
           <% if session[:user_id] != nil %>
-            <li class="nav-item">Hi, <%= User.find_by(id:session[:user_id])%></li>
+            <li class="nav-item"><%= link_to "My Account", "/users/#{session[:user_id]}" %></li>
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+          <% else %>
+            <li class="nav-item"><a class="nav-link" href="/users/new">Sign Up</a></li>
+            <li class="nav-item"><a class="nav-link" href="/sessions/new">Login</a></li>
           <% end %>
-
-
-          <li class="nav-item"><a class="nav-link" href="/users/new">Sign Up</a></li>
-          <li class="nav-item"><a class="nav-link" href="/sessions/new">Login</a></li>
-
         </li>
       </ul>
       </div>
     </nav>
 
     <div class="container">
-
+      <% if notice.present? %>
+      <div class="alert alert-primary">
+        <%= notice %>
+      </div>
+    <% end %>
       <%= yield %>
 
     </div>

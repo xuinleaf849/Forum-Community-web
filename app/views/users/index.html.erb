@@ -13,9 +13,9 @@
       </tr>
     </thead>
     <tbody>
-      <% User.all.order('email').each do |user| %>
+      <% @users.each do |user| %>
         <tr>
-          <td><%= user.nickname %></td>
+          <!-- <td><%= user.nickname %></td> -->
           <td><%= user.email %></td>
           <td><%= user.password %></td>
           <td>

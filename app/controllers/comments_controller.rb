@@ -4,20 +4,20 @@ class CommentsController < ApplicationController
   #   comment = Comment.find_by(id: params["id"])
   #   comment.message = params["message"]
   #   comment.save
-  #   redirect_to "/threads"
+  #   redirect_to "/topics"
   # end
 
   def destroy
     comment = Comment.find_by(id: params["id"])
     comment.delete
-    redirect_to "/discussions"
+    redirect_to "/comments"
   end
 
   def create
     Comment.create :message => params["message"]
                    # :user_id => #whoever login
-                   # :thread_id: => #the one corresponds to the discussion
-    redirect_to "/discussions"
+                   # :topic_id: => #the one corresponds to the discussion
+    redirect_to "/comments", notice: "Commented successfully!"
   end
 
 end

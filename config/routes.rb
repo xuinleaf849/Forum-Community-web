@@ -1,23 +1,24 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    root 'discussions#index'
+    root 'topics#index'
 
-    get "/users" => "users#index"
-    get "/users/new" => 'users#new'
-    post "/users" => 'users#create'
-    get "/users/:id" => 'users#show'
-    delete "/users/:id" => 'users#destroy'
-    get "/users/:id/edit" => 'users#edit'
-    patch "/users/:id" => 'users#update'
+    resources :users
+    # get "/users" => "users#index"
+    # get "/users/new" => 'users#new'
+    # post "/users" => 'users#create'
+    # get "/users/:id" => 'users#show'
+    # delete "/users/:id" => 'users#destroy'
+    # get "/users/:id/edit" => 'users#edit'
+    # patch "/users/:id" => 'users#update'
 
-    # ?? not sure for the threads route (should be automatically created and deleted with /discussions)
-    # get "/threads" => "threads#index"
-    # get "/threads/new" => 'discussions#new'
-    # post "/threads" => 'threads#create'
-    # get "/threads/:id" => 'threads#show'
-    # get "/threads/:id/edit" => 'threads#edit'
-    # patch "/threads/:id" => 'threads#update'
-    # delete "/threads/:id" => 'discussions#destroy'
+    # ?? not sure for the topics route (should be automatically created and deleted with /discussions)
+    get "/topics" => "topics#index"
+    get "/topics/new" => 'topics#new'
+    post "/topics" => 'topics#create'
+    get "/topics/:id" => 'topics#show'
+    get "/topics/:id/edit" => 'topics#edit'
+    patch "/topics/:id" => 'topics#update'
+    delete "/topics/:id" => 'topics#destroy'
 
     get "/discussions" => "discussions#index"
     get "/discussions/new" => 'discussions#new'
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
     get "/discussions/:id/edit" => 'discussions#edit'
     patch "/discussions/:id" => 'discussions#update'
 
-    # get "/comments" => "comments#index"
+    get "/comments" => "comments#index"
     get "/comments/new" => 'comments#new'
     post "/comments" => 'comments#create'
     get "/comments/:id" => 'comments#show'

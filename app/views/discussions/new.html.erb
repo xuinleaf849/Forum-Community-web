@@ -8,10 +8,18 @@
       <p>Title: <input name="title" type="text" autofocus class="form-control"></p>
       <p>Content: <input name="content" type="text" autofocus class="form-control"></p>
 
+      <p>Topic:
+                <select name="topic_id">
+                  <% Topic.order('name').each do |topic| %>
+                    <option value="<%= topic.id %>">
+                      <%= topic.name %>
+                    </option>
+                  <% end %>
+                </select>
+            </p>
+            <button class="btn btn-primary">Add Discussion</button>
 
-      <button class="btn btn-primary">Add New Discussion</button>
+          <% end %>
 
-    <% end %>
-
-  </div>
-</div>
+        </div>
+      </div>

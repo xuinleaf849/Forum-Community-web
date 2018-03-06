@@ -1,0 +1,13 @@
+<% topic = Topic.find_by(id: params["id"]) %>
+
+<h1><%= topic.name %></h1>
+
+<p>Discussions by this topic:</p>
+
+<div class="row">
+  <% topic.discussions.each do |discussion| %>
+    <div class="col-sm-3">
+      <%= link_to "discussion", "/discussions/#{discussion.id}" %>
+    </div>
+  <% end %>
+</div>

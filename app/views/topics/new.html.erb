@@ -1,0 +1,24 @@
+<h1>Add a Topic</h1>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag "/topics" do %>
+
+      <p>Name: <input name="name" type="text" autofocus class="form-control"></p>
+
+      <p>Director:
+          <select name="director_id">
+            <% Director.order('name').each do |director| %>
+              <option value="<%= director.id %>">
+                <%= director.name %>
+              </option>
+            <% end %>
+          </select>
+      </p>
+      <button class="btn btn-primary">Add Topic</button>
+
+    <% end %>
+
+  </div>
+</div>
