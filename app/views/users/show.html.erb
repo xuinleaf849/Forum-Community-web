@@ -3,6 +3,11 @@
 
 <% user = User.find_by(id: params["id"]) %>
 
-<!-- <p>Nickname: <%= user.nickname %></p> -->
+<p>Username: <%= user.username %></p>
 <p>Email: <%= user.email %></p>
 <p>Password Digest: <%= user.password_digest %></p>
+
+    <hr>
+    <%= link_to "Update", "/users/#{user.id}/edit", class: "btn btn-lg btn-success" %>
+  </div>
+</div>

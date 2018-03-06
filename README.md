@@ -22,7 +22,7 @@ How to set up:
 
 
 How to use:
-1. users need to sign up for the first time, and login if they launch a discussion or make a comment.
+1. users need to sign up for the first time, and login if they launch a discussion or make a comment. Username is unique.
 Moreover, users can edit their information, or log out.
 2. users can launch discussions, and see, delete, comment or edit the discussions they launched.
 3. users can comment below any discussions, and see or delete their comments.

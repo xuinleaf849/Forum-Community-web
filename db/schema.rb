@@ -18,7 +18,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "discussion_id"
+    t.integer "user_id"
     t.index ["discussion_id"], name: "index_comments_on_discussion_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "discussions", force: :cascade do |t|
@@ -27,7 +29,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at"
     t.datetime "created_at"
     t.integer "topic_id"
+    t.integer "user_id"
     t.index ["topic_id"], name: "index_discussions_on_topic_id"
+    t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -41,6 +45,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text "password_digest"
+    t.text "username"
+    t.boolean "is_admin", default: false
   end
 
 end

@@ -5,24 +5,26 @@
 # Indent consistently!  Follow the syntax carefully!
 #
 User
+  username: text
   email: text
-  # nickname: text
   password_digest: text
+  is_admin: boolean(false)
 
 Topic
   name: text
-  # comment_count: integer
 
 Discussion
   title: text
   content: text
   updated_at: datetime
   topic_id: integer
+  user_id: integer
 
 Comment
   message: text
   time: datetime
   discussion_id: integer
+  user_id: integer
 
 
 

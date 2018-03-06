@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  def edit
+    if session["user_id"].blank?
+      redirect_to "/users/:id"
+    else
+      @user = User.find_by(id: session["user_id"])
+      render "edit"
+    end
+  end
 
   def show
     if params["id"] != session[:user_id].to_s
@@ -7,20 +15,35 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.order('email')
+    if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true)
+      render "index"
+
+    else
+      redirect_to "/sessions/new"
+    end
   end
+
 
   def new # /users/new
     @user = User.new
   end
 
   def update
-    user = User.find_by(id: params["id"])
-    user.email = params["email"]
-    # user.nickname = params["nickname"]
-    user.password = params["password"]
-    user.save
-    redirect_to "/users"
+    if session["user_id"].blank?
+    redirect_to "/users/:id"
+    else
+      @user = User.find_by(id: session["user_id"])
+      @user.password = params["password"]
+      @user.email = params["email"]
+      @user.save
+      if @user.save
+        flash[:success] = "Successfully updated"
+        redirect_to "/"
+      else
+        flash[:danger] = @user.errors.full_messages
+        redirect_to "/users/new"
+      end
+    end
   end
 
   def destroy
@@ -32,12 +55,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new
     @user.email = params["email"]
-    # @user.nickname = params["nickname"]
+    @user.username = params["username"]
     @user.password = params["password"]
     # if @user.errors.any?
     if @user.save
-      redirect_to "/users", notice: "Thanks for joining the MPCS community!"
+      redirect_to "/"
+      flash[:notice] =  "Thanks for joining the MPCS community, please login!"
     else
+      flash[:danger] = @user.errors.full_messages
       render 'new'
     end
   end

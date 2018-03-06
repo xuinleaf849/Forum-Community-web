@@ -2,16 +2,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'topics#index'
 
-    resources :users
-    # get "/users" => "users#index"
-    # get "/users/new" => 'users#new'
-    # post "/users" => 'users#create'
-    # get "/users/:id" => 'users#show'
-    # delete "/users/:id" => 'users#destroy'
-    # get "/users/:id/edit" => 'users#edit'
-    # patch "/users/:id" => 'users#update'
+    get "/users" => "users#index"
+    get "/users/new" => 'users#new'
+    get "/users/:id/edit" => 'users#edit'
+    get "/users/:id" => 'users#show'
+    post "/users" => 'users#create'
+    delete "/users/:id" => 'users#destroy'
+    patch "/users" => 'users#update'
 
-    # ?? not sure for the topics route (should be automatically created and deleted with /discussions)
+
     get "/topics" => "topics#index"
     get "/topics/new" => 'topics#new'
     post "/topics" => 'topics#create'

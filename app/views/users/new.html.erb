@@ -1,4 +1,4 @@
-<h1>Sign Up!</h1>
+<h1>Sign Up</h1>
 
 <% if @user.errors.any? %>
 <ul>
@@ -12,7 +12,7 @@
   <div class="col-sm-4">
 
     <%= form_tag "/users" do %>
-
+      <p>Username: <input value="<%= @user.username %>" name="username" type="text" autofocus class="form-control"></p>
       <p>Email: <input value="<%= @user.email %>" name="email" type="text" autofocus class="form-control"></p>
       <p>Password: <input value="<%= @user.password %>" name="password" type="text" autofocus class="form-control"></p>
 

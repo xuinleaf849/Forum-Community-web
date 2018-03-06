@@ -4,23 +4,36 @@ class TopicsController < ApplicationController
     @topics = Topic.all.limit(100).order('created_at desc')
   end
 
-  # def update
-  #   topic = Topic.find_by(id: params["id"])
-  #   # topic.comment_count = # Comment.count(where(topic_id: #topic))
-  #   topic.save
-  #   redirect_to "/"
-  # end
 
-# how to update the comment_count every time comment changes??
+  def edit
+    if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true)
+      render "edit"
+    else
+      redirect_to "/"
+    end
+  end
+
+
+  def update
+    topic = Topic.find_by(id: params["id"])
+    topic.name = params.require(:topic).permit(:name)
+    topic.save
+    redirect_to "/"
+  end
+
+
 
   def create
-    Topic.create :name => params["name"]
+    Topic.create(params.require(:topic).permit(:name))
+    # Topic.create :name => params["name"]
     redirect_to "/"
   end
 
   def destroy
-    topic = Topic.find_by(id: params["id"])
-    topic.delete
+    if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true)
+      topic = Topic.find_by(id: params["id"])
+      topic.delete
+    end
     redirect_to "/"
   end
 
