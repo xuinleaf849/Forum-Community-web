@@ -1,4 +1,4 @@
-<div class="row">
+<!--
 
   <div class="my-3">
     <%= link_to "Add a New Comment", "/comments/new", class: 'btn btn-primary' %>
@@ -22,4 +22,49 @@
       <% end %>
     </tbody>
   </table>
-</div>
+</div> -->
+
+<table class="table">
+<!-- If the user loging is admin, can edit/delete discussions -->
+  <% if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true) %>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Comment</th>
+        <th scope="col">Discussion</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.each do |cm| %>
+        <tr>
+          <td><%= cm.message %></td>
+          <td><%= link_to Discussion.find_by(id: cm.discussion_id).title, "/discussions/#{cm.discussion_id}" %></td>
+          <td><%= link_to "[Delete]", "/comments/#{cm.id}", method: "delete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+<!-- If the user is not admin, can only see the discussion -->
+  <% else %>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Comment</th>
+        <th scope="col">Discussion</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.each do |cm| %>
+        <tr>
+          <td><%= cm.message %></td>
+          <td><%= link_to Discussion.find_by(id: cm.discussion_id).title, "/discussions/#{cm.discussion.id}" %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+
+<% end %>
+</table>
+<hr>
+
+<button class="btn btn-outline-primary"><%= link_to "Launch a New Comment", "/comments/new" %></button>
