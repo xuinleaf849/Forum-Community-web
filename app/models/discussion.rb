@@ -2,7 +2,7 @@ class Discussion < ApplicationRecord
 
   belongs_to :topic
   belongs_to :user
-  has_many :comments, :dependent => :destroy
+  has_many :comments
 
   validates :title, :content, presence: true
   validates :user_id, presence: true, numericality: { only_integer: true }
