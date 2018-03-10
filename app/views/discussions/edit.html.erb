@@ -18,7 +18,7 @@
     <%= form_tag "/discussions/#{discussion.id}", method: "patch" do %>
 
       <p>Title: <input value="<%= discussion.title %>" name="title" type="text" autofocus class="form-control"></p>
-      <p>Content: <input value="<%= discussion.content %>"  name="year" type="text" class="form-control"></p>
+      <p>Content: <input value="<%= discussion.content %>"  name="content" type="text" class="form-control"></p>
 
       <p>Topic:
           <select name="topic_id" class="form-control">

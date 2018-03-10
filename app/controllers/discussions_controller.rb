@@ -11,18 +11,30 @@ class DiscussionsController < ApplicationController
       redirect_to "/"
     end
   end
-  
+
   def update
     if session["user_id"].blank?
       flash[:notice] = "Please login first:D"
       redirect_to "/sessions/new"
     else
       discussion = Discussion.find_by(id: params["id"])
-      discussion.title = params["title"]
-      discussion.content = params["content"]
+      discussion.title = params[:title]
+      discussion.content = params[:content]
+      discussion.user_id = session[:user_id]
+      discussion.topic_id = params[:topic_id]
       discussion.save
-      flash[:notice] = "Discussion updated successfully!"
+      flash[:notice] = "Yay! Discussion updated!"
       redirect_to "/discussions"
+      # if discussion.save
+      #   flash[:notice] = "Yay! Discussion updated!"
+      #   redirect_to "/discussions"
+      # else
+      #   flash[:notice] = "Updating discussion failed!"
+      #   redirect_to "/discussions"
+      # end
+
+      # flash[:notice] = "Discussion updated successfully!"
+      # redirect_to "/discussions"
     end
       # if User.find_by(id: session["user_id"]).is_admin == true
       #   discussion = Discussion.find_by(id: params["id"])
@@ -80,11 +92,17 @@ class DiscussionsController < ApplicationController
     if session["user_id"].blank?
       redirect_to "/sessions/new"
     else
-      Discussion.create :title => params["title"],
-                        :content => params["content"]
-
-      flash[:notice] = "Yay! Discussion added!"
-      redirect_to "/discussions"
+      d = Discussion.new :title => params["title"],
+                        :content => params["content"],
+                        :user_id => session["user_id"],
+                        :topic_id => params["topic_id"]
+      if d.save
+        flash[:notice] = "Yay! Discussion added!"
+        redirect_to "/discussions"
+      else
+        flash[:notice] = "Adding discussion failed!"
+        redirect_to "/discussions"
+      end
     end
   end
 

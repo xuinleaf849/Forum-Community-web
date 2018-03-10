@@ -26,10 +26,16 @@ class CommentsController < ApplicationController
       flash[:notice] = "Please login first:D"
       redirect_to "/sessions/new"
     else
-    Comment.create :message => params["message"]
-                   # :user_id => #whoever login
-                   # :topic_id: => #the one corresponds to the discussion
-    redirect_to "/comments", notice: "Commented successfully!"
+      c = Comment.new :message => params["message"],
+                    :user_id => session["user_id"],
+                    :discussion_id => params["discussion_id"]
+      if c.save
+        flash[:notice] = "Commented successfully!"
+        redirect_to "/comments"
+      else
+        flash[:notice] = "Adding comment failed!"
+        redirect_to "/comments"
+      end
     end
   end
 

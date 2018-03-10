@@ -58,7 +58,6 @@
         <tr>
           <td><%= cm.message %></td>
           <td><%= link_to Discussion.find_by(id: cm.discussion_id).title, "/discussions/#{cm.discussion.id}" %></td>
-
         </tr>
       <% end %>
     </tbody>

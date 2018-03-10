@@ -9,7 +9,7 @@ Building a Community for MPCS student@UChicago
 https://vast-refuge-25205.herokuapp.com/
 
 #Purpose:
-this website is a forum community for UChicago MPCS students to post ideas and communicate with each other.
+- this website is a forum community for UChicago MPCS students to post ideas and communicate with each other.
 
 # Models:
 - User (Everyone who launches a discussion or posts a comment need to sign up or login.)
