@@ -1,5 +1,8 @@
 # README
 
+Created by: Yunye Xu
+cNetID: yunye
+
 Building a Community for MPCS student@UChicago
 =============
 
@@ -25,11 +28,27 @@ How to set up:
 How to use:
 1. For administrator:
 (1) Login with username "admin" and password "123" to be in admin mode.
-(2) Admin can edit and delete topics,
+(2) After login, admin can view, create, edit(other users can't) and delete(other users can't) topics.
+(3) After clicking into a certain topic, admin can see the discussions related to it, and add discussions.
+(4) Either by clicking the "Discussions" button in the Navbar, or by clicking "view all discussions", admin can view, create, edit(other users can't) and delete(other users can't) discussions.
+(5) In each of the discussions, discussion details and the comments related to it will be shown.
+(6) Comments can only be deleted by admin by clicking "Comments" button in the Navbar.
+Admin can also create a new comment.
 
-1. users need to sign up for the first time, and login if they launch a discussion or make a comment. Username is unique.
-Moreover, users can edit their information, or log out.
-2. users can launch discussions, and see, delete, comment or edit the discussions they launched.
-3. users can comment below any discussions, and see or delete their comments.
-<!-- 4. users can see a whole list of topics (a topic consists of a discussion with all its following comments).
-Moreover, they can see the related topics in which they have commented or discussed. -->
+
+2. For other users:
+(1) Sign up and login with username, email and password. They will be alerted if username invalid or password incorrect when login.
+(2) After login, users can only view and create topics. (They won't see the edit or delete buttons).
+(3) After clicking into a certain topic, users can see the discussions related to it, and add discussions.
+(4) Either by clicking the "Discussions" button in the Navbar, or by clicking "view all discussions", users can only view and create discussions. (They won't see the edit or delete buttons).
+(5) In each of the discussions, discussion details and the comments related to it will be shown.
+(6) Users can create comments and see the list of comments by clicking "Comments" button in the Navbar. Comments can only be deleted by admin.
+
+
+3. About user account:
+(1) Users don't need to login every time they browse the website, need to login again until they log out.
+(2) Users can't view or make modification of other users' information.
+(3) Users can view their own information, and update their emails and password.
+However, username can't be changed once created. (It's unique.)
+(4) All the user passwords are encrypted.
+(5) Users need to sign up for the first time, and login if they do any actions.
