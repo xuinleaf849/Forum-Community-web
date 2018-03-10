@@ -1,4 +1,14 @@
+
+
 <% discussion = Discussion.find_by(id: params["id"]) %>
+
+<% if discussion.errors.any? %>
+<ul>
+  <% discussion.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
 
 <h1>Editing <%= discussion.title %></h1>
 
@@ -10,11 +20,11 @@
       <p>Title: <input value="<%= discussion.title %>" name="title" type="text" autofocus class="form-control"></p>
       <p>Content: <input value="<%= discussion.content %>"  name="year" type="text" class="form-control"></p>
 
-      <p>User:
-          <select name="user_id" class="form-control">
-            <% User.order('name').each do |user| %>
-              <option value="<%= user.id %>" <%= 'selected' if discussion.user_id == user.id %> >
-                <%= user.nickname %>
+      <p>Topic:
+          <select name="topic_id" class="form-control">
+            <% Topic.order('name').each do |tp| %>
+              <option value="<%= tp.id %>" <%= 'selected' if discussion.topic_id == tp.id %> >
+                <%= tp.name %>
               </option>
             <% end %>
           </select>

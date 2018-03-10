@@ -3,12 +3,13 @@
 Building a Community for MPCS student@UChicago
 =============
 
-Models:
+#Purpose: this website is a forum community for UChicago MPCS students to post ideas and communicate with each other.
 
-* User (Everyone who launches a discussion or posts a comment need to sign up or login.)
-* Topic (Top-most level. Each consists of discussions and comments below the discussion.)
-* Discussion (Belongs to a topic, concerning a discussion launched.)
-* Comment (A comment belongs to a discussion, launched by a certain user.)
+# Models:
+- User (Everyone who launches a discussion or posts a comment need to sign up or login.)
+- Topic (Top-most level. Each consists of discussions and comments below the discussion.)
+  - Discussion (Belongs to a topic, concerning a discussion launched.)
+    - Comment (A comment belongs to a discussion, launched by a certain user.)
 
 
 
@@ -22,6 +23,10 @@ How to set up:
 
 
 How to use:
+1. For administrator:
+(1) Login with username "admin" and password "123" to be in admin mode.
+(2) Admin can edit and delete topics,
+
 1. users need to sign up for the first time, and login if they launch a discussion or make a comment. Username is unique.
 Moreover, users can edit their information, or log out.
 2. users can launch discussions, and see, delete, comment or edit the discussions they launched.

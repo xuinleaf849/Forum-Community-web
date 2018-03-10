@@ -1,56 +1,39 @@
 <% discussion = Discussion.find_by(id: params["id"]) %>
-
-<div class="row">
-  <div class="col-sm-6">
-    <h1><%= discussion.title %> </h1>
+<hr>
+<div>
+    <h2><%= discussion.title %> </h2>
     <% if discussion.topic.present? %>
       <p class="lead">Topic: <%= link_to discussion.topic.name, "/topics/#{discussion.topic.id}" %></p>
     <% end %>
-  </div>
 </div>
-<div class="row">
-
-  <div class="col-sm-3">
+<br>
+<div>
     <strong><%= discussion.content %></strong>
-  </div>
-  <div class="col-sm-6">
+</div>
+<!-- <button><%=link_to "[edit]", "/discussions/#{discussion.id}/edit" %></button>
+<button><%= link_to "[Delete]", "/discussions/#{discussion.id}", method: "delete" %></button> -->
+<button><%=link_to "view all discussions", "/discussions" %></button>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>Comments:</h3>
-        <hr>
-        <div class="row">
-          <% discussion.comments.each do |comment| %>
+<hr>
+<br>
+<div>
+    <h4>Comments:</h4>
+<br>
 
-            <div class="col-sm-3 text-center">
+    <% discussion.comments.each do |comment| %>
+     <div>
+        <br>
+        <strong><%= comment.message %></strong>
+        <br>
+        Commented by:   <%= thisUser= User.find_by(id:comment.user_id).username %>
+        <br>
+        Created At:   <%= comment.created_at %>
+        <br>
+     </div>
+    <% end %>
+</div>
 
-              <br>
-              <%= comment.message %>
-              <br>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <!-- <% if discussion.topic.present? && discussion.topic.discussions.count > 1 %>
-
-      <div class="row mt-3">
-        <div class="col-sm-12">
-          <h3>Other discussions by this topic:</h3>
-          <hr>
-          <div class="row">
-            <% discussion.topic.discussions.each do |other_discussion| %>
-              <% if (discussion != other_discussion) %>
-                <div class="col-sm-2">
-                  <%= link_to image_tag(other_discussion.poster_url, class: 'img-fluid'), "/discussions/#{other_discussion.id}" %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
-    <% end %> -->
-  </div>
+<hr>
+<div>
+  <button><%= link_to "Add comments", "/comments/new" %></button>
 </div>

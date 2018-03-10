@@ -24,7 +24,7 @@ end
 
 
 # for user part
-users = [["yunye", "123", "yunye@uchicago.edu", true],
+users = [["admin", "123", "admin@uchicago.edu", true],
          ["Helen", "helen", "helen@uchicago.edu", false],
          ["Nella", "nella", "nella@uchicago.edu", false]]
 
@@ -93,7 +93,7 @@ end
 
 
 
-print "There are now #{User.count} movies in the database.\n"
+print "There are now #{User.count} users in the database.\n"
 print "There are now #{Topic.count} topics in the database.\n"
-print "There are now #{Discussion.count} actors in the database.\n"
-print "There are now #{Comment.count} users in the database.\n"
+print "There are now #{Discussion.count} discussions in the database.\n"
+print "There are now #{Comment.count} comments in the database.\n"

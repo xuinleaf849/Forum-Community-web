@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
 
   <div class="my-3">
     <%= link_to "Add a new discussion", "/discussions/new", class: 'btn btn-primary' %>
@@ -22,4 +22,46 @@
       <% end %>
     </tbody>
   </table>
-</div>
+</div> -->
+
+<table class="table">
+<!-- If the user loging is admin, can edit/delete discussions -->
+  <% if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true) %>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Discussion</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @discussions.each do |disc| %>
+        <tr>
+          <td><%= link_to disc.title, "/discussions/#{disc.id}"%></td>
+          <td><%= link_to "[Edit]", "/discussions/#{disc.id}/edit" %></td>
+          <td><%= link_to "[Delete]", "/discussions/#{disc.id}", method: "delete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+<!-- If the user is not admin, can only see the discussion -->
+  <% else %>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Discussion</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @discussions.each do |disc| %>
+        <tr>
+          <td><%= link_to disc.title, "/discussions/#{disc.id}"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+<% end %>
+</table>
+<hr>
+
+<button><%= link_to "Launch a New Discussion", "/discussions/new" %></button>

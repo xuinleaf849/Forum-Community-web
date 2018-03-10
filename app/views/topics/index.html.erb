@@ -1,22 +1,56 @@
-<div class="row">
 
-  <div class="col-sm-3 my-3">
-    <%= link_to "Launch a New Topic", "/topics/new" %>
-  </div>
-
-  <% @topics.each do |topic| %>
-
-    <div class="col-sm-3 my-3 text-center">
-    
-
-      <p>
-        <% if session[:user_id].present? %>
-          <%= link_to "[Delete]", "/topics/#{topic.id}", method: "delete" %>
-          <%= link_to "[Edit]", "/topics/#{topic.id}/edit" %>
+<!-- <div>
+  <p>Topics:
+      <select name="topic_name">
+        <% Topic.order('name').each do |tp| %>
+          <option value="<%= tp.id %>">
+            <%= tp.name %>
+          </option>
         <% end %>
-      </p>
-    </div>
+      </select>
+  </p>
+</div> -->
+<table class="table">
 
-  <% end %>
+  <% if !(session["user_id"].blank?) and (User.find_by(id: session["user_id"]).is_admin == true) %>
+      <!-- <th scope="row"></th> -->
+    <thead class="thead-dark">
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">Topic</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
 
-</div>
+    <tbody>
+      <% @topics.each do |tp| %>
+        <tr>
+          <td><%= link_to tp.name, "/topics/#{tp.id}"%></td>
+          <td><%= link_to "[Edit]", "/topics/#{tp.id}/edit" %></td>
+          <td><%= link_to "[Delete]", "/topics/#{tp.id}", method: "delete" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  <% else %>
+      <!-- <th scope="row"></th> -->
+    <thead class="thead-dark">
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">Topic</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @topics.each do |tp| %>
+        <tr>
+          <td><%= link_to tp.name, "/topics/#{tp.id}"%></td>
+      <% end %>
+    </tbody>
+    <% end %>
+</table>
+
+<hr>
+
+<button><%= link_to "Launch a New Topic", "/topics/new" %></button>

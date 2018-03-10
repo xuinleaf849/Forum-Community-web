@@ -5,8 +5,8 @@
 <div class="row">
   <div class="col-sm-4">
 
-    <%= form_tag "/users/#{user.id}", method: "patch" do %>
-    <p>Username: <input value="<%= user.username %>" name="username" type="text" autofocus class="form-control"></p>
+    <%= form_tag "/users", method: "patch" do %>
+    <!-- <p>Username: <input value="<%= user.username %>" name="username" type="text" autofocus class="form-control"></p> -->
     <p>Email: <input value="<%= user.email %>" name="email" type="text" autofocus class="form-control"></p>
     <p>Password: <input value="<%= user.password %>" name="password" type="text" autofocus class="form-control"></p>
 

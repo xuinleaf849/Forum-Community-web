@@ -2,12 +2,18 @@
 
 <h1><%= topic.name %></h1>
 
-<p>Discussions by this topic:</p>
+<p>Discussions about this topic:</p>
 
 <div class="row">
   <% topic.discussions.each do |discussion| %>
     <div class="col-sm-3">
-      <%= link_to "discussion", "/discussions/#{discussion.id}" %>
+      <%= link_to discussion.title, "/discussions/#{discussion.id}" %>
     </div>
   <% end %>
+</div>
+<hr>
+
+<div>
+
+  <button><%= link_to "Add Discussions", "/discussions/new" %></button>
 </div>

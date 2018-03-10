@@ -15,7 +15,7 @@
     <tbody>
       <% Comment.all.order('message').each do |comment| %>
         <tr>
-          <td><%= link_to comment.message, "/comments/#{comment.id}" %></td>
+          <td><%= comment.message %></td>
 
           <td><%= link_to "[Delete]", "/comments/#{comment.id}", method: 'delete' %></td>
         </tr>

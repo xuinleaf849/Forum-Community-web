@@ -5,17 +5,17 @@
 
     <%= form_tag "/topics" do %>
 
-      <p>Name: <input name="name" type="text" autofocus class="form-control"></p>
+      <p>Topic Name: <input name="name" type="text" autofocus class="form-control"></p>
 
-      <p>Director:
-          <select name="director_id">
-            <% Director.order('name').each do |director| %>
-              <option value="<%= director.id %>">
-                <%= director.name %>
+      <!-- <p>Existing Topics:
+          <select name="topic_name">
+            <% Topic.order('name').each do |tp| %>
+              <option value="<%= tp.id %>">
+                <%= tp.name %>
               </option>
             <% end %>
           </select>
-      </p>
+      </p> -->
       <button class="btn btn-primary">Add Topic</button>
 
     <% end %>

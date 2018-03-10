@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       @user.email = params["email"]
       @user.save
       if @user.save
-        flash[:success] = "Successfully updated"
+        flash[:notice] = "Successfully updated"
         redirect_to "/"
       else
         flash[:danger] = @user.errors.full_messages
