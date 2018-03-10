@@ -6,7 +6,8 @@ cNetID: yunye
 Building a Community for MPCS student@UChicago
 =============
 
-#Purpose: this website is a forum community for UChicago MPCS students to post ideas and communicate with each other.
+#Purpose:
+this website is a forum community for UChicago MPCS students to post ideas and communicate with each other.
 
 # Models:
 - User (Everyone who launches a discussion or posts a comment need to sign up or login.)
@@ -16,7 +17,7 @@ Building a Community for MPCS student@UChicago
 
 
 
-How to set up:
+# How to set up:
 
 1. In your Command Prompt, cd mpcs52553-final
 2. bundle install
@@ -25,7 +26,7 @@ How to set up:
 5. Browse 'localhost:3000'.
 
 
-How to use:
+# How to use:
 1. For administrator:
 (1) Login with username "admin" and password "123" to be in admin mode.
 (2) After login, admin can view, create, edit(other users can't) and delete(other users can't) topics.
