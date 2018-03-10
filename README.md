@@ -27,7 +27,7 @@ this website is a forum community for UChicago MPCS students to post ideas and c
 
 
 # How to use:
-1. For administrator:
+## 1. For administrator:
 - Login with username "admin" and password "123" to be in admin mode.
 - After login, admin can view, create, edit(other users can't) and delete(other users can't) topics.
 - After clicking into a certain topic, admin can see the discussions related to it, and add discussions.
@@ -37,7 +37,7 @@ this website is a forum community for UChicago MPCS students to post ideas and c
 Admin can also create a new comment.
 
 
-2. For other users:
+## 2. For other users:
 - Sign up and login with username, email and password. They will be alerted if username invalid or password incorrect when login.
 - After login, users can only view and create topics. (They won't see the edit or delete buttons).
 - After clicking into a certain topic, users can see the discussions related to it, and add discussions.
@@ -46,7 +46,7 @@ Admin can also create a new comment.
 - Users can create comments and see the list of comments by clicking "Comments" button in the Navbar. Comments can only be deleted by admin.
 
 
-3. About user account:
+## 3. About user account:
 - Users don't need to login every time they browse the website, need to login again until they log out.
 - Users can't view or make modification of other users' information.
 - Users can view their own information, and update their emails and password.
