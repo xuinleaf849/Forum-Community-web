@@ -29,11 +29,11 @@ this website is a forum community for UChicago MPCS students to post ideas and c
 # How to use:
 ## 1. For administrator:
 - Login with username "admin" and password "123" to be in admin mode.
-- After login, admin can view, create, edit(other users can't) and delete(other users can't) topics.
+- After login, admin can view, create, **edit(other users can't) and delete(other users can't)** topics.
 - After clicking into a certain topic, admin can see the discussions related to it, and add discussions.
-- Either by clicking the "Discussions" button in the Navbar, or by clicking "view all discussions", admin can view, create, edit(other users can't) and delete(other users can't) discussions.
+- Either by clicking the "Discussions" button in the Navbar, or by clicking "view all discussions", admin can view, create, **edit(other users can't) and delete(other users can't)** discussions.
 - In each of the discussions, discussion details and the comments related to it will be shown.
-- Comments can only be deleted by admin by clicking "Comments" button in the Navbar.
+- **Comments can only be deleted by admin** by clicking "Comments" button in the Navbar.
 Admin can also create a new comment.
 
 
