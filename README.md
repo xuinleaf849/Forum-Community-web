@@ -10,10 +10,10 @@ Building a Community for MPCS student@UChicago
 this website is a forum community for UChicago MPCS students to post ideas and communicate with each other.
 
 # Models:
-1. User (Everyone who launches a discussion or posts a comment need to sign up or login.)
-1. Topic (Top-most level. Each consists of discussions and comments below the discussion.)
+- User (Everyone who launches a discussion or posts a comment need to sign up or login.)
+- Topic (Top-most level. Each consists of discussions and comments below the discussion.)
 - Discussion (Belongs to a topic, concerning a discussion launched.)
-1 Comment (Belongs to a discussion, launched by a certain user.)
+- Comment (Belongs to a discussion, launched by a certain user.)
 
 
 
