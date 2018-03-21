@@ -1,6 +1,6 @@
 # README
 
-Building a University Forum Community by Ruby on Rails
+Building a University Forum Community with Ruby on Rails
 =============
 #url:
 https://vast-refuge-25205.herokuapp.com/
