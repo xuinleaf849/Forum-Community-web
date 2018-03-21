@@ -1,15 +1,12 @@
 # README
 
-Created by: Yunye Xu    
-   cNetID: yunye
-
-Building a Community for MPCS student@UChicago
+Building a University Forum Community by Ruby on Rails
 =============
 #url:
 https://vast-refuge-25205.herokuapp.com/
 
 #Purpose:
-- this website is a forum community for UChicago MPCS students to post ideas and communicate with each other.
+- this website is a forum community for students to post ideas and communicate with each other.
 
 # Models:
 - User (Everyone who launches a discussion or posts a comment need to sign up or login.)
@@ -21,7 +18,7 @@ https://vast-refuge-25205.herokuapp.com/
 
 # How to set up:
 
-1. In your Command Prompt, cd mpcs52553-final
+1. Download the folder,and prompt cd to the directory
 2. bundle install
 3. rails db:migrate db:seed
 4. rails server
